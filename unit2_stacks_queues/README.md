@@ -27,26 +27,26 @@ Complete all TODO sections:
 
 ## Implementation Summary
 
-I implemented the stack with a Python list and used `append()` and `pop()` to
-store and remove values from the same end. This design demonstrated LIFO by
+The stack was implemented with a Python list, while append() and pop() were used
+to store and remove values from the same end. This design demonstrated LIFO by
 modeling a text editor's undo history: the most recently saved action was the
-first action undone. I implemented the queue with `collections.deque` and used
-`append()` with `popleft()` for efficient FIFO operations. The coffee-shop line
+first action undone. The queue was implemented with collections.deque, using
+append() with popleft() for efficient FIFO operations. The coffee-shop line
 demonstrated that customers were served in the order they arrived.
 
-Both structures returned `None` when a removal or viewing operation was
-attempted while empty. I also tested empty structures and single-item
-structures to confirm that boundary conditions were handled safely. Each
+Both structures returned None when a removal or viewing operation was
+attempted while empty. Empty structures and single-item structures were also
+tested to confirm that boundary conditions were handled safely. Each
 structure stored one additional reference for every item added, so its memory
 usage grew linearly, or O(n), with the number of stored items.
 
 ## Program Output and Testing
 
-I ran the program and verified that four stack actions were removed in reverse
-order and four queued customers were removed in arrival order. I confirmed that
-`pop()`, `peek()`, `dequeue()`, and `front()` returned `None` when their
-structures were empty. I also verified that removing the only item from a stack
-or queue caused `is_empty()` to return `True`.
+The program was run to verify that four stack actions were removed in reverse
+order and four queued customers were removed in arrival order. Testing confirmed
+that pop(), peek(), dequeue(), and front() returned None when their structures
+were empty. Removing the only item from a stack or queue also caused is_empty()
+to return True.
 
 ## Real-World Interpretation
 
@@ -64,15 +64,15 @@ Your reflection should be approximately 150–200 words and address the followin
 2. What challenges did you encounter, and how did you overcome them?
 3. Explain the differences between stacks and queues as this relates to real-world applications.
 
-I learned how the location used for insertion and removal determined the order
-in which a linear data structure returned its elements. I implemented a stack
-with a Python list because `append()` and `pop()` efficiently operated on the
-same end. I implemented a queue with `deque` because `popleft()` removed the
-oldest item without shifting every remaining element. The main challenge was
-handling operations safely when no item existed. I overcame it by checking
-`is_empty()` before each viewing or removal operation and returning `None` when
-the structure was empty. I then tested empty, single-item, and reused
-structures.
+The assignment demonstrated how the location used for insertion and removal
+determined the order in which a linear data structure returned its elements. A
+stack was implemented with a Python list because append() and pop() efficiently
+operated on the same end. A queue was implemented with deque because popleft()
+removed the oldest item without shifting every remaining element. The main
+challenge involved handling operations safely when no item existed. This was
+resolved by checking is_empty() before each viewing or removal operation and
+returning None when the structure was empty. Empty, single-item, and reused
+structures were then tested.
 
 The text-editor scenario showed that a stack used LIFO: the most recent editing
 action had to be undone first so earlier work remained in the correct order.
